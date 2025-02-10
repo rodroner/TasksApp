@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+    <app-searcher [tasksList]="tasksListShow" (filteredTasks)="onFilteredTasks($event)"></app-searcher>
+
+
+    <div class="col-12 my-4">
+      <!-- Renderizamos la lista de tasks -->
+      <div *ngIf="loading" class="row justify-content-center">
+        <mat-spinner class="p-0"></mat-spinner>
+      </div>
+      <app-list [tasksList]="tasksListShow"></app-list>
+    </div>
+
+  </div>
+</div>

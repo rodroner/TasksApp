@@ -1,0 +1,62 @@
+<!-- boton en card -->
+<button
+  (click)="showFormModalView()"
+  class="btn-edit top-0 btn bg-light shadow p-2 mx-1">
+  <span class="material-symbols-outlined">
+    pageview
+  </span>
+</button>
+
+<!-- modal -->
+<div *ngIf="task">
+  <div [ngClass]="{'d-block': showModal, 'd-none': !showModal}" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="row">
+            <h2 class="col-12 modal-title">
+              {{task.id}} - {{task.name}}
+            </h2>
+            
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <p>
+              Proceso: {{ task.process }}
+            </p>
+            <p>
+              <span *ngIf="task?.assigned">Usuario asignado: {{ assignedUser }}</span>
+              <span *ngIf="!(task?.assigned)">Sin usuario asignado</span>
+            </p>
+            <p>
+              <span *ngIf="task?.hasCategory">Categoría asignada: {{ assignedCat }}</span>
+              <span *ngIf="!(task?.hasCategory)">Sin categoría</span>
+            </p>
+            <div class="list" *ngIf="task?.hasTaskChild!=[]">
+              @for (taskChild of assignedTaskChild; track taskChild) {
+                 <div class="item card m-2 p-2">
+                    {{ taskChild.id }}-{{ taskChild.name }}
+                 </div>
+                }
+            </div>
+            <p>
+              Dificultad:
+
+              <span
+                *ngFor="let star of [].constructor(task.difficulty); let i = index"
+                class="difficulty-icon material-symbols-outlined">
+                electric_bolt
+              </span>
+            </p>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="hiddeModalView()" type="button" class="btn bg-dark text-light">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

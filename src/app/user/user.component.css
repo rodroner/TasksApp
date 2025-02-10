@@ -1,0 +1,17 @@
+.roleStyle {
+  padding: 4px;
+  border-radius: 8px;
+  color: white;
+}
+
+.roleAdmin {
+  background-color: rgb(232, 203, 41);
+}
+
+.roleDeveloper {
+  background-color: rgb(45, 45, 255);
+}
+
+.roleUser {
+  background-color: rgb(149, 207, 255);
+}

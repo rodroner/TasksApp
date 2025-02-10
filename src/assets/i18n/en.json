@@ -1,0 +1,10 @@
+{
+  "titlelistcomponent": "List component",
+  "plistcomponent": "This component displays a list of all tasks, as well as the button to create a task.",
+  "select_lang": "Select Language",
+  "board": "Board",
+  "categories": "Categories",
+  "users": "Users",
+  "sprints": "Sprints",
+  "mySession": "My session"
+}

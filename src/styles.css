@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.backgroundStyle{
+  background-image: radial-gradient(circle, #0050c8, #02479f, #173c76, #20304f, #222429);}

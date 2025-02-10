@@ -1,0 +1,83 @@
+<div cdkDropListGroup class="row h-100">
+
+  <div class="col-3" data-process="pending selection">
+    <h2 class="text-uppercase">pending selection</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="tasksByStatus['pending selection']"
+      (cdkDropListDropped)="drop($event)"
+      class="col-task"
+      >
+      @for (item of tasksByStatus['pending selection']; track item) {
+        <div class="example-box" cdkDrag>
+          <span class="data-id-task d-none">{{item.id}}</span>
+          <app-item-card [task]="item" class="w-100 card-item bg-light border rounded shadow"
+          (processChanged)="onProcessChanged($event)">
+          </app-item-card>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="col-3" data-process="in progress">
+    <h2 class="text-uppercase">in progress</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="tasksByStatus['in progress']"
+      (cdkDropListDropped)="drop($event)"
+      class="col-task"
+      >
+      @for (item of tasksByStatus['in progress']; track item) {
+        <div class="example-box" cdkDrag>
+          <span class="data-id-task d-none">{{item.id}}</span>
+          <app-item-card [task]="item" class="w-100 card-item bg-light border rounded shadow"
+          (processChanged)="onProcessChanged($event)">
+          </app-item-card>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="col-3" data-process="pending validation">
+    <h2 class="text-uppercase">pending validation</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="tasksByStatus['pending validation']"
+      (cdkDropListDropped)="drop($event)"
+      class="col-task"
+      >
+      @for (item of tasksByStatus['pending validation']; track item) {
+        <div class="example-box" cdkDrag>
+          <span class="data-id-task d-none">{{item.id}}</span>
+          <app-item-card [task]="item" class="w-100 card-item bg-light border rounded shadow"
+          (processChanged)="onProcessChanged($event)">
+          </app-item-card>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="col-3" data-process="done">
+    <h2 class="text-uppercase">done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="tasksByStatus['done']"
+      (cdkDropListDropped)="drop($event)"
+      class="col-task"
+      >
+      @for (item of tasksByStatus['done']; track item) {
+        <div class="example-box" cdkDrag>
+          <span class="data-id-task d-none">{{item.id}}</span>
+          <app-item-card [task]="item" class="w-100 card-item bg-light border rounded shadow"
+          (processChanged)="onProcessChanged($event)">
+          </app-item-card>
+        </div>
+      }
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,54 @@
+<!-- boton en card -->
+<button
+  (click)="showFormModalUpdate(task?.id)"
+  class="btn-edit top-0 btn btn-primary p-2 mx-1">
+  <span class="material-symbols-outlined">
+    edit
+  </span>
+</button>
+
+<!-- modal -->
+<div *ngIf="task">
+  <div [ngClass]="{'d-block': showModal, 'd-none': !showModal}" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="row">
+            <h2 class="col-12 modal-title">
+              Actualiza los siguientes campos:
+            </h2>
+          </div>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label class="col-12 col-form-label mt-2">Introduzca el nombre del producto:</label>
+              <div class="col-12">
+                <input (change)="inputValid()" [(ngModel)]="task.name" name="name" type="text" class="form-control" #name="ngModel">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-12 col-form-label mt-2">Introduzca la dificultad de tarea 0 a 5:</label>
+              <div class="col-3">
+                <input min="0" max="5" (change)="inputValid()" [(ngModel)]="task.difficulty" name="difficulty" type="number" class="form-control"
+                  #price="ngModel">
+                <div *ngIf="price.invalid && price.touched" class="text-danger w-100 position-absolute">
+                  Dificultad de tarea 0 a 5
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="modal-footer">
+              <button (click)="updateValid()" type="button" class="btn btn-primary">Actualizar</button>
+              <button (click)="hiddeModalUpdate()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

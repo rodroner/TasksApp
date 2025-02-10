@@ -1,0 +1,120 @@
+<!-- card + -->
+<div class="item-card item-card-add">
+  <div class="row justify-content-center h-100">
+    <button (click)="showFormModal()" class="btn btn-add col-auto my-auto">
+      <i class="bi bi-plus-circle-fill"></i>
+    </button>
+  </div>
+</div>
+
+<!-- modal crear -->
+<div [ngClass]="{'d-block': showModal, 'd-none': !showModal}" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <h2 class="col-12 modal-title">
+            Crear nueva tarea
+          </h2>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form #productoForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Introduzca el nombre de la tarea:</label>
+            <div class="col-12">
+              <input required [(ngModel)]="task.name" name="name" type="text" class="form-control" #name="ngModel">
+              <div *ngIf="name.invalid && name.touched" class="text-danger">
+                El nombre es requerido.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Seleccione un sprint:</label>
+            <div class="col-12">
+              <select class="form-select" [(ngModel)]="task.hasSprint" name="hasSprint" #hasSprint="ngModel">
+                <option [value]=""></option>
+                @for (sprint of sprintList; track sprint) {
+                <option [value]="sprint.id">{{sprint.name}}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Selecciona la categoría:</label>
+            <div class="col-12">
+              <select class="form-select" [(ngModel)]="task.hasCategory" name="hasCategory" #hasCategory="ngModel"
+                (change)="selectCategory($event)">
+                <option [value]=""></option>
+                @for (cat of categoryList; track cat) {
+                <option [value]="cat.id">{{cat.name}}</option>
+                }
+              </select>
+            </div>
+            <div class="isEpicTask d-none">
+              <label class="col-12 col-form-label mt-2 ">Añade las tareas a la épica:</label>
+              <div class="col-12">
+                @for (task of tasksList; track task) {
+                <div class="card m-2 p-2 shadow" [ngClass]="{'d-none': task.hasCategory=== '0000'}">
+                  <div class="row justify-content-between">
+                    <div class="col-6">
+                      {{task.id}}-{{task.name}}
+                    </div>
+                    <div class="col-auto">
+                      <mat-slide-toggle (change)="pickChildTask($event, task.id)"></mat-slide-toggle>
+                    </div>
+                  </div>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Asigne un usuario:</label>
+            <div class="col-12">
+              <select class="form-select" [(ngModel)]="task.assigned" name="assigned" #assigned="ngModel">
+                <option [value]=""></option>
+                @for (user of usersList; track user) {
+                <option [value]="user.id">{{user.name}}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Seleccione la dificultad de tarea 0 a 5:</label>
+            <div class="col-12">
+              <span (click)="selectDifficulty(0)" class="difficulty-icon material-symbols-outlined">
+                close
+              </span>
+              <span
+                *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+                class="difficulty-icon material-symbols-outlined"
+                [class.selected]="i < selectedDifficulty"
+                [class.hovered]="i < hoverDifficulty"
+                (mouseenter)="onMouseEnter(i + 1)"
+                (mouseleave)="onMouseLeave()"
+                (click)="selectDifficulty(i + 1)"
+              >
+                electric_bolt
+              </span>
+            </div>
+          </div>
+
+
+
+          <div class="modal-footer mt-5">
+            <button (click)="hiddeModal()" type="submit" class="col-auto btn btn-success"
+              [disabled]="productoForm.invalid">
+              Crear tarea
+            </button>
+            <button (click)="hiddeModal()" type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

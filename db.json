@@ -1,0 +1,135 @@
+{
+  "tasks": [
+    {
+      "id": "107a",
+      "name": "uno",
+      "assigned": "6d66",
+      "hasCategory": null,
+      "hasSprint": "",
+      "hasTaskChild": [],
+      "difficulty": 0,
+      "process": "done"
+    },
+    {
+      "id": "f68f",
+      "name": "dos",
+      "assigned": "593d",
+      "hasCategory": "",
+      "hasSprint": "",
+      "hasTaskChild": [],
+      "difficulty": 1,
+      "process": "in progress"
+    },
+    {
+      "id": "042b",
+      "name": "nuevo",
+      "assigned": "593d",
+      "hasCategory": "",
+      "hasSprint": "",
+      "hasTaskChild": [],
+      "difficulty": 0,
+      "process": "pending validation"
+    },
+    {
+      "id": "273a",
+      "name": "epic",
+      "assigned": null,
+      "hasCategory": "0000",
+      "hasSprint": "a61e",
+      "hasTaskChild": [
+        "107a",
+        "f68f",
+        "042b"
+      ],
+      "difficulty": 5,
+      "process": "in progress"
+    },
+    {
+      "id": "cbb3",
+      "name": "media",
+      "assigned": "beb1",
+      "hasCategory": "f160",
+      "hasSprint": "a61e",
+      "hasTaskChild": [],
+      "difficulty": 2,
+      "process": "pending selection"
+    },
+    {
+      "id": "13aa",
+      "name": "dos",
+      "assigned": null,
+      "hasCategory": "f160",
+      "hasSprint": "a61e",
+      "hasTaskChild": [],
+      "difficulty": 4,
+      "process": "pending validation"
+    },
+    {
+      "id": "d06f",
+      "name": "Tarea nueva",
+      "assigned": null,
+      "hasCategory": "0000",
+      "hasSprint": "a61e",
+      "hasTaskChild": [
+        "13aa",
+        "cbb3"
+      ],
+      "difficulty": 2,
+      "process": "pending selection"
+    }
+  ],
+  "users": [
+    {
+      "id": "0000",
+      "name": "admin",
+      "password": "$2a$10$WGYrNlr3iN6EQe9LNp0ereVKeZet99HhqZsu1lmqYHrtM.iqMb1.e",
+      "role": "admin"
+    },
+    {
+      "id": "beb1",
+      "name": "developer",
+      "password": "$2a$10$D2Bdtm0q4LWWY1zCun5J9uojBJqgDEsNg3varl7CAzO8xqUa2tLGu",
+      "role": "developer"
+    },
+    {
+      "id": "a178",
+      "name": "normal",
+      "password": "$2a$10$vR21CXPuud8XRMClDpiAcOUrZK.ctSAvwABtv4JhE.GJ2TcYEVGia",
+      "role": "user"
+    },
+    {
+      "id": "6d66",
+      "name": "Anto",
+      "role": "developer"
+    },
+    {
+      "id": "593d",
+      "name": "Pedro",
+      "role": "user"
+    }
+  ],
+  "categories": [
+    {
+      "id": "0000",
+      "name": "EPIC"
+    },
+    {
+      "id": "f160",
+      "name": "front"
+    },
+    {
+      "id": "4be0",
+      "name": "nueva"
+    }
+  ],
+  "sprints": [
+    {
+      "id": "a61e",
+      "name": "SP0"
+    },
+    {
+      "id": "1c08",
+      "name": "SP1"
+    }
+  ]
+}

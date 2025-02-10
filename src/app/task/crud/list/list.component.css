@@ -1,0 +1,30 @@
+.row .card-item{
+  margin-top: 2.5%;
+}
+
+.card-item:nth-child(1){
+  margin-left: 0% !important;
+}
+.card-item:nth-child(5n){
+  margin-right: 0% !important;
+}
+.card-item:nth-child(5n+1){
+  margin-left: 0% !important;
+}
+
+@media (min-width: 992px) {
+  .row .card-item{
+    flex: 0 0 auto;
+    width: 16%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+}
+@media (max-width: 768px) {
+  .row .card-item{
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0% !important;
+  }
+}
+

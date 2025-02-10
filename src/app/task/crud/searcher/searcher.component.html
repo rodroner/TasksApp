@@ -1,0 +1,71 @@
+<div class="task-filter">
+  <form [formGroup]="filterForm">
+    <div class="row">
+      <div class="col-4 my-2">
+        <mat-form-field class="w-100" >
+          <mat-label>Name</mat-label>
+          <input matInput type="text" [(ngModel)]="valueNameInput" id="name" formControlName="name" type="text" placeholder="Search by name">
+          @if (valueNameInput) {
+            <button matSuffix mat-icon-button aria-label="Clear" (click)="valueNameInput=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          }
+        </mat-form-field>
+      </div>
+      <div class="col-4 my-2">
+        <mat-form-field class="w-100">
+          <mat-label for="assigned">Assigned</mat-label>
+          <mat-select disableRipple id="assigned" formControlName="assigned" type="text" placeholder="Assigned to">
+            @for (user of usersList; track user) {
+                <mat-option [value]="user.id">{{user.name}}</mat-option>
+              }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-4 my-2">
+        <mat-form-field class="w-100">
+          <mat-label for="hasCategory">Category</mat-label>
+          <mat-select disableRipple id="hasCategory" formControlName="hasCategory" type="text" placeholder="Category">
+            @for (cat of categoryList; track cat) {
+                <mat-option [value]="cat.id">{{cat.name}}</mat-option>
+              }
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <div class="col-4 my-2">
+        <mat-form-field class="w-100">
+          <mat-label for="hasSprint">Sprint</mat-label>
+          <mat-select disableRipple id="hasSprint" formControlName="hasSprint" type="text" placeholder="Sprint">
+            @for (sprint of sprintList; track sprint) {
+                <mat-option [value]="sprint.id">{{sprint.name}}</mat-option>
+              }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-4 my-2">
+        <mat-form-field class="w-100">
+          <mat-label for="process">Process</mat-label>
+          <mat-select disableRipple id="process" formControlName="process">
+            <mat-option value="">Select process</mat-option>
+            <mat-option value="pending selection">Pending Selection</mat-option>
+            <mat-option value="in progress">In Progress</mat-option>
+            <mat-option value="pending validation">Pending Validation</mat-option>
+            <mat-option value="done">Done</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-4 my-2">
+        <mat-form-field class="w-100" >
+          <mat-label for="difficulty">Difficulty</mat-label>
+          <input matInput min="0" max="5" type="number" id="difficulty" formControlName="difficulty" placeholder="Difficulty">
+
+        </mat-form-field>
+
+      </div>
+    </div>
+
+    <button mat-button type="reset">Reset filters</button>
+  </form>
+</div>

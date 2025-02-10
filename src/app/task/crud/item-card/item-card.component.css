@@ -1,0 +1,96 @@
+.task-card{
+  height: 375px;
+  width: 100%;
+}
+
+.task-process{
+  font-size: 0.95rem;
+  border-radius: 16px;
+  padding: 0.25rem;
+  width: auto;
+  float: right;
+  cursor: pointer;
+}
+
+.task-process.white{
+  background: rgb(93, 93, 93);
+  color: white;
+}
+
+.task-process.orange{
+  background: rgb(255, 176, 59);
+  color: white;
+}
+
+.task-process.blue{
+  background: rgb(81, 68, 255);
+  color: white;
+}
+
+.task-process.green{
+  background: rgb(95, 255, 108);
+  color: white;
+}
+
+.task-process:hover{
+  opacity: 0.8;
+}
+
+.task-name{
+  background: rgb(222, 222, 222);
+  padding: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.task-category{
+  border-radius: 0px 0px 16px 16px;
+  background: rgb(175, 175, 175);
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  border-bottom: 2px solid rgb(93, 93, 93);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Lato;
+  color: white;
+  cursor: pointer;
+}
+
+.task-category:hover{
+  opacity: 0.8;
+}
+.task-category.isEpic:hover{
+  opacity: 1 !important;
+}
+
+.task-category.isEpic{
+  background: purple;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.task-assigned{
+  border-radius: 16px;
+  background: rgb(175, 175, 175);
+  padding: 0.25rem;
+}
+
+.task-assigned:hover{
+  opacity: 0.8;
+}
+
+.task-assigned-user{
+  border-radius: 16px;
+  background: rgb(93, 93, 93);
+  color: white;
+  font-size: 0.95rem;
+  padding: 0.25rem;
+}
+
+.task-difficulty{
+  color: yellow;
+}
+
+.material-symbols-outlined{
+  background-color: rgb(175, 175, 175);
+  border-radius: 50%;
+}

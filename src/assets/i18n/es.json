@@ -1,0 +1,10 @@
+{
+  "titlelistcomponent": "Componente lista",
+  "plistcomponent": "Este componente muestra un listado de todas las tareas, además del botón para crea una tarea",
+  "select_lang": "Selecciona el idioma",
+  "board": "Tablero",
+  "categories": "Categorías",
+  "users": "Usuarios",
+  "sprints": "Sprints",
+  "mySession": "Mi sesión"
+}

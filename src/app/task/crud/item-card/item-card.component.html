@@ -1,0 +1,87 @@
+<div class="task-card position-relative">
+  <div class="col-12 task-name">
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="task-process text-uppercase"
+          (click)="changeProcess(task)"
+          [ngClass]="{
+          'white': task?.process === 'pending selection',
+          'orange': task?.process === 'in progress',
+          'blue': task?.process === 'pending validation',
+          'green': task?.process === 'done'
+        }">
+          {{ task?.process }}
+        </div>
+      </div>
+      <div class="col-12">
+        <p class="p-2 my-2">
+          <span *ngIf="task?.hasSprint">{{ assignedSprint }} -</span>
+          <span class="small text-uppercase" *ngIf="task?.hasSprint=='' || task?.hasSprint==null">Sin sprint -</span>
+
+          {{ task?.id }} - {{ task?.name }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="btnSelectCatList==true"
+    (click)="showCatList()"
+    [ngClass]="{'isEpic': task?.hasCategory=== '0000'}"
+    class="col-12 task-category text-center">
+    <span *ngIf="task?.hasCategory">{{ assignedCat }}</span>
+    <span *ngIf="task?.hasCategory=='' || task?.hasCategory==null">Sin categoría</span>
+  </div>
+  <select
+    *ngIf="divSelectCatList==true"
+    (change)="onCatSelect($event)"
+    [ngClass]="{'d-none': task?.hasCategory=== '0000'}"
+    class="form-select">
+    <option>Selecciona una categoría:</option>
+    <option value="empty">Sin categoría</option>
+    <option *ngFor="let cat of categoryList"
+      [value]="cat.id"
+      [ngClass]="{'d-none': cat.id=='0000'}">
+      {{cat.name}}
+    </option>
+  </select>
+
+  <div *ngIf="btnSelectUserList==true" (click)="showUserList()" class="col-12 p-2 btn">
+    <p *ngIf="task?.assigned" class="my-2 task-assigned">
+      Asignado a: <span class="task-assigned-user">{{ assignedUser }}</span>
+    </p>
+    <p *ngIf="!(task?.assigned)" class="my-2 task-assigned">Sin asignar</p>
+  </div>
+  <div *ngIf="divSelectUserList==true" class="col-12 btn">
+    <select (change)="onUserSelect($event)" class="form-select">
+      <option>Seleccione un usuario:</option>
+      <option value="empty">Sin asignar</option>
+      <option *ngFor="let user of userList" [value]="user.id">
+        {{user.name}}
+      </option>
+    </select>
+  </div>
+  <div class="col-12 p-2 task-difficulty">
+    <span *ngFor="let _ of [].constructor(task?.difficulty)">
+      <span class="material-symbols-outlined">
+        electric_bolt
+      </span>
+    </span>
+  </div>
+  <div class="w-100 position-absolute bottom-0">
+    <div class="w-100 row justify-content-end">
+      <div class="col-auto p-0">
+        <app-button-view [task]="task">
+        </app-button-view>
+      </div>
+      <div class="col-auto p-0">
+        <app-button-edit [task]="task" (taskUpdate)="refreshTaskList()">
+        </app-button-edit>
+      </div>
+      <div class="col-auto p-0">
+        <app-button-remove [task]="task" (taskRemove)="refreshTaskList()">
+        </app-button-remove>
+      </div>
+    </div>
+  </div>
+</div>

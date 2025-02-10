@@ -1,0 +1,48 @@
+.nameUser {
+  font-weight: bold;
+  position: relative;
+  bottom: 5px;
+}
+
+.boxUser {
+  right: 15px;
+}
+
+.boxUserChild{
+  mix-blend-mode: difference;
+}
+
+.boxLangChild{
+  border-radius: 8px;
+  background-color: rgb(221, 221, 221);
+  text-align: left;
+}
+
+.boxLangText{
+  cursor: pointer;
+  padding: 4px 4px 12px 4px;
+  border-bottom: 1px solid #fff;
+}
+
+.boxLangChild svg{
+  float: right;
+  pointer-events: none;
+}
+
+.roleStyle {
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.roleAdmin {
+  background-color: rgb(232, 203, 41);
+}
+
+.roleDeveloper {
+  background-color: rgb(45, 45, 255);
+}
+
+.roleUser {
+  background-color: rgb(149, 207, 255);
+}
+

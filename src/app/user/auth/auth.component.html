@@ -1,0 +1,106 @@
+<mat-tab-group *ngIf="storedUser==null">
+  <mat-tab label="Login">
+    <div class="row">
+      <div class="col-12 my-4">
+        <form #loginForm="ngForm" (ngSubmit)="onLoginSubmit()">
+          <div class="row">
+            <div class="col-12">
+              <h2>Login</h2>
+            </div>
+            <div class="col-12 my-2">
+              Introduce tu nombre de usuario:
+            </div>
+            <div class="col-12 my-2">
+              <mat-form-field class="w-100">
+                <mat-label>Nombre de usuario</mat-label>
+                <input matInput required [(ngModel)]="user.name" name="name" #name="ngModel" />
+              </mat-form-field>
+              <div *ngIf="name.invalid && name.touched" class="text-danger">
+                El nombre de usuario es obligatorio.
+              </div>
+            </div>
+            <div class="col-12 my-2">
+              Introduce tu contraseña de usuario:
+            </div>
+            <div class="col-12 my-2">
+              <mat-form-field class="w-100">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" required [(ngModel)]="user.password" name="password"
+                  #password="ngModel" />
+              </mat-form-field>
+              <div *ngIf="password.invalid && password.touched" class="text-danger">
+                La contraseña es obligatoria.
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="col-6 btn btn-success" [disabled]="loginForm.invalid">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Registrar">
+    <div class="row">
+      <div class="col-12 my-4">
+        <form #registerForm="ngForm" (ngSubmit)="onRegisterSubmit()">
+          <div class="row">
+            <div class="col-12">
+              <h2>Registrar</h2>
+            </div>
+            <div class="col-12 my-2">
+              Introduce tu nombre de usuario:
+            </div>
+            <div class="col-12 my-2">
+              <mat-form-field class="w-100">
+                <mat-label>Nombre de usuario</mat-label>
+                <input matInput required [(ngModel)]="userRegister.name" name="name" #name="ngModel" />
+              </mat-form-field>
+              <div *ngIf="name.invalid && name.touched" class="text-danger">
+                El nombre de usuario es obligatorio.
+              </div>
+            </div>
+            <div class="col-12 my-2">
+              Introduce tu contraseña de usuario:
+            </div>
+            <div class="col-12 my-2">
+              <mat-form-field class="w-100">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" required [(ngModel)]="userRegister.password" name="password"
+                  #password="ngModel" />
+              </mat-form-field>
+              <div *ngIf="password.invalid && password.touched" class="text-danger">
+                La contraseña es obligatoria.
+              </div>
+              <mat-form-field class="w-100">
+                <mat-label>Repite la contraseña</mat-label>
+                <input matInput type="password" required [(ngModel)]="userRegister.password_2" name="password_2"
+                  #password_2="ngModel" />
+              </mat-form-field>
+              <div *ngIf="userRegister.password !== userRegister.password_2 && password_2.touched" class="text-danger">
+                La contraseña repetida no coincide.
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="col-6 btn btn-success" [disabled]="registerForm.invalid || !passwordsMatch()">
+              Registrar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<div *ngIf="storedUser!=null" class="row">
+  <div class="col-12">
+    <h2>Bienvenido, {{ storedUser }}</h2>
+    <button (click)="disconnect()" class="w-100 btn btn-danger">
+      Desconectar
+    </button>
+  </div>
+</div>

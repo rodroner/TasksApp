@@ -1,0 +1,29 @@
+.item-card-add{
+  height: 375px;
+}
+
+.btn-add{
+  font-size: 10vh;
+}
+
+.difficulty-icon{
+  font-size: 5vh;
+  border-radius: 50%;
+  color: yellow;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  background-color: rgb(244, 244, 244);
+
+}
+
+.difficulty-icon.selected {
+  background-color: rgb(175, 175, 175);
+}
+
+.difficulty-icon:hover {
+  background-color: rgb(95, 95, 95);
+}
+
+.difficulty-icon.hovered {
+  background-color: rgb(95, 95, 95);
+}
