@@ -17,7 +17,7 @@ import { UserService } from '../../../user/service/user.service';
 import { ItemCardAddComponent } from './item-card-add.component';
 import Swal, { SweetAlertResult } from 'sweetalert2';
 
-declare var $: any;
+declare let $: any;
 
 describe('TASK > ItemCardAddComponent', () => {
   let component: ItemCardAddComponent;

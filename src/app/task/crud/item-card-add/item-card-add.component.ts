@@ -17,7 +17,7 @@ import { Task } from '../../models/task.model';
 import { Sprint } from '../../../sprint/models/sprint.model';
 import { SprintService } from '../../../sprint/services/sprint.service';
 
-declare var $: any;
+declare let $: any;
 
 @Component({
   selector: 'app-item-card-add',

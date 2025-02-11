@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ItemCardComponent } from '../crud/item-card/item-card.component';
 
-declare var $: any;
+declare let $: any;
 
 import {
   DragDropModule,
@@ -86,8 +86,8 @@ export class BoardComponent {
     const taskIdString = event.item.element.nativeElement.firstChild?.textContent;
 
     setTimeout(() => {
-      let elementIdTask = $('.data-id-task:contains("'+taskIdString+'")');
-      let newProccess = $(elementIdTask).parent().parent().parent().attr('data-process');
+      const elementIdTask = $('.data-id-task:contains("'+taskIdString+'")');
+      const newProccess = $(elementIdTask).parent().parent().parent().attr('data-process');
 
       if(taskIdString){
         this.taskService.getTaskById(taskIdString).subscribe({
